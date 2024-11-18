@@ -8,6 +8,9 @@ COPY service /service
 WORKDIR /service
 # Открываем порт.
 EXPOSE 8000
+# Установка пакетов в Linux OC, для стабильного подключения к Postgres
+RUN apk add postgresql-client build-base postgresql-dev
+
 # Устанавливаем зависимости.
 RUN pip install -r /temp/requirements.txt
 # Создаст пользователя в операционной системе ()без пароля).
